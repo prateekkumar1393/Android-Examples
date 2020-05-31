@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import prateek.gds.daggerexample.basic.Constants;
 import prateek.gds.daggerexample.basic.MainViewModel;
 import prateek.gds.daggerexample.di.DaggerMainViewModelInjector;
+import prateek.gds.daggerexample.di.RealConnectionModule;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         final TextView textView=findViewById(R.id.text_display);
         Button button=findViewById(R.id.connect);
 
-        DaggerMainViewModelInjector.create().injectFields(this);
+        DaggerMainViewModelInjector.builder().realConnectionModule(new RealConnectionModule(Constants.ENDPOINT))
+                .build().injectFields(this);
 
         button.setOnClickListener(v -> {
             Log.d(Constants.TAG, "onCreate: Data fetched");

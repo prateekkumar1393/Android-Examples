@@ -8,8 +8,8 @@ public class RealConnection implements NetworkConnection {
     private final String mEndpoint;
 
     @Inject
-    public RealConnection() {
-        this.mEndpoint = Constants.ENDPOINT;
+    public RealConnection(String endpoint) {
+        this.mEndpoint = endpoint;
     }
 
     @Override
