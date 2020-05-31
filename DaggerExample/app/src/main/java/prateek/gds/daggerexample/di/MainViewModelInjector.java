@@ -1,5 +1,7 @@
 package prateek.gds.daggerexample.di;
 
+import javax.inject.Named;
+
 import dagger.BindsInstance;
 import dagger.Component;
 import prateek.gds.daggerexample.MainActivity;
@@ -13,6 +15,12 @@ public interface MainViewModelInjector {
         MainViewModelInjector build();
 
         @BindsInstance
-        Builder setEndpoints(String endpoints);
+        Builder setEndpoints(@Named("endpoints") String endpoints);
+
+        @BindsInstance
+        Builder setUsername(@Named("username") String username);
+
+        @BindsInstance
+        Builder setPassword(@Named("password") String password);
     }
 }

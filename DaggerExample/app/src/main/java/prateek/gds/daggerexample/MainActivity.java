@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
         final TextView textView=findViewById(R.id.text_display);
         Button button=findViewById(R.id.connect);
 
-        DaggerMainViewModelInjector.builder().setEndpoints(Constants.ENDPOINT)
+        DaggerMainViewModelInjector.builder()
+                .setEndpoints(Constants.ENDPOINT)
+                .setUsername("admin")
+                .setPassword("admin123")
                 .build().injectFields(this);
 
         button.setOnClickListener(v -> {
