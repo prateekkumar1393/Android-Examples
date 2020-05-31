@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView textView=findViewById(R.id.text_display);
         Button button=findViewById(R.id.connect);
 
-        DaggerMainViewModelInjector.builder().realConnectionModule(new RealConnectionModule(Constants.ENDPOINT))
+        DaggerMainViewModelInjector.builder().setEndpoints(Constants.ENDPOINT)
                 .build().injectFields(this);
 
         button.setOnClickListener(v -> {
