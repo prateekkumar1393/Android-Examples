@@ -33,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(mMainViewModel.fetchData());
         });
     }
+
+    @Inject
+    public void testMethod(){
+        Log.d(Constants.TAG, "testmethod: this is test method from main activity");
+    }
 }
