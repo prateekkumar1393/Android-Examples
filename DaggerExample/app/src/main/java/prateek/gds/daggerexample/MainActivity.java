@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import prateek.gds.daggerexample.basic.Constants;
 import prateek.gds.daggerexample.basic.MainViewModel;
+import prateek.gds.daggerexample.di.DaggerMainViewModelInjector;
 import prateek.gds.daggerexample.network.NetworkClient;
 import prateek.gds.daggerexample.network.NetworkConnection;
 
@@ -25,10 +26,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView textView=findViewById(R.id.text_display);
         Button button=findViewById(R.id.connect);
 
-        NetworkConnection connection = new NetworkConnection();
-        NetworkClient client = new NetworkClient(connection);
-
-        mMainViewModel = new MainViewModel(client);
+        mMainViewModel = DaggerMainViewModelInjector.create().getMainViewModel();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
