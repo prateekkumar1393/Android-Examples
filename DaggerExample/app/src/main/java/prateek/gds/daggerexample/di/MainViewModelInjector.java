@@ -1,9 +1,9 @@
 package prateek.gds.daggerexample.di;
 
 import dagger.Component;
-import prateek.gds.daggerexample.basic.MainViewModel;
+import prateek.gds.daggerexample.MainActivity;
 
 @Component
 public interface MainViewModelInjector {
-    MainViewModel getMainViewModel();
+    void injectFields(MainActivity mainActivity);
 }
